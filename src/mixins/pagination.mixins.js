@@ -1,0 +1,32 @@
+
+import _ from "lodash"; 
+export default {
+    data() {
+        return {
+            page: +this.$route.query.page || 1, 
+            pageSize: 5,
+            pageCount: 0, 
+            allItems: [], 
+            items: [], 
+        };
+    },
+    methods: {
+        pageChangeHandler(page) {
+            this.$router.push(`${this.$route.path}?page=${page}`); 
+            let vv = this.allItems[page - 1];
+            let cc = vv.length;
+
+            this.items = this.allItems[page - 1] || this.allItems[0]; 
+
+
+        },
+        setupPagination(arr) {
+ 
+            this.allItems = _.chunk(arr, this.pageSize); 
+            this.pageCount = _.size(this.allItems); 
+            this.items = this.allItems[this.page - 1] || this.allItems[0]; 
+           
+
+        }
+    }
+};
