@@ -1,5 +1,7 @@
 # vue-spending-diary
 
+[Web-application-Spending-diary](https://vue-spending-diary.web.app)- Web приложение (CRM) "Ежедневные расходы".
+
 ## Project setup
 ```
 npm install
